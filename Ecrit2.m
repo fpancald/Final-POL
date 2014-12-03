@@ -13,16 +13,16 @@
 %atrition p;
 close all
 clear all
-n=20;
+n=5;
 p=0.1:0.1:1;
 E=zeros(n,length(p),n-1);
 for i=2:n
     for j=1:length(p)
         for s=1:i-1
-            for k=1:i-s
+            for k=0:i-s-1
                 E(i,j,s)=E(i,j,s)+p(j)^k;
             end
-            E(i,j,s)=(E(i,j,s)+s)/p(j)^(i-s);
+            E(i,j,s)=(E(i,j,s)*s+p(j)^(i-s))/p(j)^(i-s);
         end
     end
 end
@@ -35,7 +35,7 @@ for j=1:length(p)
         plot(s+1:n,E(s+1:n,j,s));
     end
 end
-% jj=9;
+% jj=3;
 nn=n;
 for jj=1:length(p)
     EE=squeeze(E(nn,jj,1:nn-1));
@@ -61,51 +61,3 @@ for s=n-1:-1:1
     end
 end
 T
-% %each row of T contains the i and l values for a topology that has a lower
-% %critical energy than the selected one
-% %note that for each value of l we keep only the one with the highest number
-% %of nodes
-% n=100;
-% p=0.1:0.1:1;
-% E=zeros(n,length(p),n-1);
-% for i=2:n
-%     for j=1:length(p)
-%         for l=1:i-1
-%             for k=0:l-1
-%                 E(i,j,l)=E(i,j,l)+p(j)^k;
-%             end
-%             E(i,j,l)=(E(i,j,l)*(i-l)+p(j)^l)/p(j)^l;
-%         end
-%     end
-% end
-% %now I am plotting on the same graph the critical energy corresponding to a
-% %specific p value for all the possible topology with up to n nodes
-% for j=1:length(p)
-%     figure(j)
-%     hold on
-%     for l=1:n-1
-%         plot(l+1:n,E(l+1:n,j,l));
-%     end
-% end
-% close all
-% %here I want to check what are the topology that require less energy than a
-% %specific one {n,p,l}; ii, jj, ll, here stand for the chosen values for #of
-% %nodes n, attrition p and linearity l
-% ii=100;
-% jj=9;
-% ll=1;E(ii,jj,ll)
-% T=[];
-% for l=1:n-1
-%     for i=n:-1:2
-%         if E(ii,jj,ll)>E(i,jj,l) && E(i,jj,l)>0
-%             T=[T;i,l,l/(i-1),E(i,jj,l)];
-%             break;
-%         end
-%     end
-% end
-% %each row of T contains the i and l values for a topology that has a lower
-% %critical energy than the selected one
-% %note that for each value of l we keep only the one with the highest number
-% %of nodes
-% T
-%     
