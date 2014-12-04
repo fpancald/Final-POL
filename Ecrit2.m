@@ -13,7 +13,7 @@
 %atrition p;
 close all
 clear all
-n=5;
+n=100;
 p=0.1:0.1:1;
 E=zeros(n,length(p),n-1);
 for i=2:n
