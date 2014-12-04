@@ -9,7 +9,7 @@ for i=2:n
         for k=0:i-1
             El(i,j)=El(i,j)+p(j)^k;
         end
-        El(i,j)=El(i,j)/p(j)^i-1;
+        El(i,j)=El(i,j)/p(j)^(i-1);
     end
 end
 for j=1:length(p)
