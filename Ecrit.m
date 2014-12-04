@@ -30,10 +30,13 @@ end
 %specific p value for all the possible topology with up to n nodes
 for j=1:length(p)
     figure(j)
-    hold on
+    hold all
     for s=1:n-1
         plot(s+1:n,E(s+1:n,j,s));
     end
+    xlabel('Number of nodes N')
+    ylabel('Critical energy')
+    title('Critical energy for all values of s')
 end
 % jj=9;
 nn=n;
@@ -41,7 +44,7 @@ for jj=1:length(p)
     EE=squeeze(E(nn,jj,1:nn-1));
     figure
     plot(1:nn-1,EE(nn-1:-1:1))
-    xlabel('Length of line')
+    xlabel('Length of line l')
     ylabel('Critical energy')
     title('Critical energy change as we go from a line to a star')
 end
