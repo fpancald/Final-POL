@@ -13,7 +13,7 @@
 %atrition p;
 close all
 clear all
-n=10;
+n=20;
 p=0.1:0.1:1;
 E=zeros(n,length(p),n-1);
 for i=2:n
@@ -30,54 +30,40 @@ end
 %specific p value for all the possible topology with up to n nodes
 for j=1:length(p)
     figure(j)
-    hold on
+    hold all
     for s=1:n-1
         plot(s+1:n,E(s+1:n,j,s));
     end
+    xlabel('Number of nodes N')
+    ylabel('Critical energy')
+    title('Critical energy for all values of s')
 end
-jj=9;
-nn=10;
-EE=squeeze(E(nn,jj,1:nn-1));
-figure
-plot(1:nn-1,EE(1:nn-1))
-xlabel('Length of line')
-ylabel('Critical energy')
-title('Critical energy change as we go from a line to a star')
-% EE=zeros(n,length(p),n-1);
-% for i=2:n
-%     for rs=1:n-1
-%         for j=1:length(p)
-%             if rs>i-1
-%                 break;
-%             else
-%                 EE(i,j,rs)=E(i,j,i-rs);
-%             end
-%         end
-%     end
-% end
-% for j=1:length(p)
-%     figure(j)
-%     hold on
-%     for rs=1:1
-%         plot(2:n,E(2:n,j,rs));
-%     end
-% end
-% %here I want to check what are the topology that require less energy than a
-% %specific one {n,p,l}; ii, jj, ll, here stand for the chosen values for #of
-% %nodes n, attrition p and linearity l
-% ii=100;
 % jj=9;
-% ll=1;E(ii,jj,ll)
-% T=[];
-% for l=1:n-1
-%     for i=n:-1:2
-%         if E(ii,jj,ll)>E(i,jj,l) && E(i,jj,l)>0
-%             T=[T;i,l,l/(i-1),E(i,jj,l)];
-%             break;
-%         end
-%     end
-% end
-% T
+nn=n;
+for jj=1:length(p)
+    EE=squeeze(E(nn,jj,1:nn-1));
+    figure
+    plot(1:nn-1,EE(nn-1:-1:1))
+    xlabel('Length of line l')
+    ylabel('Critical energy')
+    title('Critical energy change as we go from a line to a star')
+end
+%here I want to check what are the topology that require less energy than a
+%specific one {n,p,l}; ii, jj, ll, here stand for the chosen values for #of
+%nodes n, attrition p and linearity l
+ii=n;
+jj=9;
+ss=1;E(ii,jj,n-1)
+T=[];
+for s=n-1:-1:1
+    for i=n:-1:2
+        if E(ii,jj,ss)>E(i,jj,s) && E(i,jj,s)>0
+            T=[T;i,s,s/(i-1),E(i,jj,s)];
+            break;
+        end
+    end
+end
+T
 % %each row of T contains the i and l values for a topology that has a lower
 % %critical energy than the selected one
 % %note that for each value of l we keep only the one with the highest number
