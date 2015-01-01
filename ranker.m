@@ -1,19 +1,29 @@
+%ranker
+%inputs: A tensor, fixing each last index gives a connectivity matrix
+%           c - consumption of single cell
+%           p - dissipation of single transport
+%outputs: r matrix - each row lists the critical energies for the
+%corresponding connectivity matrix in A
+%           rk orders r by column
+%           I gives indeces of the ordering done with rk
+%           rk2, I2 same as rk,I after eliminating element greater than minimum
+%           in previous columns
+%description: generates ranking for networks described by A through the
+%values of their critical energies.
+
+function [r,rk,I,rk2,I2]=ranker(A,c,p)
 l=length(A(1,1,:));
-c=1;
-p=0.9;
 n=length(A(:,:,1));
 r=Inf(l,n-1);
 for i=1:l
-    temp=allEcrit(A(:,:,i),c,p);
+    M=sparse(A(:,:,i));
+    temp=allEcrit(M,c,p);
     nn=length(temp);
     for j=1:nn
         r(i,j)=temp(j,1);
     end
 end
-r
 [rk,I]=sort(r,1);
-rk
-I
 r2=r;
 mn=inf;
 for j=2:n-1
@@ -25,5 +35,4 @@ for j=2:n-1
     end
 end
 [rk2,I2]=sort(r2,1);
-rk2
-I2
+end

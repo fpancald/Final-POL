@@ -1,3 +1,14 @@
+%ecrit3
+%inputs: A matrix - connectivity matrix
+%           k positive integer - node chosen as "barely alive" to calculate
+%           the critical energy
+%           c - consumption of single cell
+%           p - dissipation of single transport
+%outputs: Ec - critical energy
+%description: computes critical energy through matrix form recursive
+%formulation given the connectivity matrix and the node to keep "barely
+%alive"
+
 function [Ec]=ecrit3(A,k,c,p)
 n=length(A);
 M=zeros(1,n);
