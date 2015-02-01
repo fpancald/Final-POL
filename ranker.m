@@ -11,13 +11,15 @@
 %description: generates ranking for networks described by A through the
 %values of their critical energies.
 
+%line 21-22:use allEcrit for death events (multiple cell can die in one death event), use allEcrit2 to count each cell as a single death 
 function [r,rk,I,rk2,I2]=ranker(A,c,p)
 l=length(A(1,1,:));
 n=length(A(:,:,1));
 r=Inf(l,n-1);
 for i=1:l
     M=sparse(A(:,:,i));
-    temp=allEcrit(M,c,p);
+%     temp=allEcrit(M,c,p);
+    temp=allEcrit2(M,c,p);
     nn=length(temp);
     for j=1:nn
         r(i,j)=temp(j,1);

@@ -1,4 +1,4 @@
-%allEcrit
+%allEcrit2
 %inputs: A matrix - connectivity matrix
 %           c - consumption of single cell
 %           p - dissipation of single transport
@@ -7,7 +7,7 @@
 %description: calculates all critical energies for the given network
 %iterating ecrit3 through all the nodes.
 
-function [E]=allEcrit(A,c,p)
+function [E]=allEcrit2(A,c,p)
 format long
 n=length(A);
 E=[];
@@ -16,5 +16,5 @@ for i=2:n
 %    E=[E;ecrit2(A,i,c,p)];
     E=[E;ecrit3(A,i,c,p)];
 end
-E=sort(unique(E), 'descend');
+E=sort(E, 'descend');
 end
