@@ -14,11 +14,11 @@ if m<n
             B=[A,[zeros(i-1,N);ones(lr-i+1,N)];zeros(N,lr+N)];
             LL=LL+1;
             T{LL}=B;
-%             for j=1:(lr-i)
-%                 B=[A,[zeros(i-1,N);ones(lr-i+1,N-1),[zeros(j,1);ones(lr-i-j+1,1)]];zeros(N,lr+N)];
-%                 LL=LL+1;
-%                 T{LL}=B; 
-%             end
+            for j=1:(lr-i)
+                B=[A,[zeros(i-1,N);ones(lr-i+1,N-1),[zeros(j,1);ones(lr-i-j+1,1)]];zeros(N,lr+N)];
+                LL=LL+1;
+                T{LL}=B; 
+            end
         end
     end
             
