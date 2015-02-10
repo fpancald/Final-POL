@@ -1,3 +1,5 @@
+%builds all topologies up to size n. Works calling recursiveli topelit with
+%all the possible star cores up to size n
 function [T]=topelitall(n)
 T=[];
 for i=2:n

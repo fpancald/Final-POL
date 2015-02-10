@@ -1,3 +1,4 @@
+%determines first node in last layer of connectivity matrix A
 function [i]=firstll(A)
 n=length(A);
 for k=1:n
