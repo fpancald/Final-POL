@@ -83,29 +83,40 @@ sp=[];
 xwp=[];
 swp=[];
 k=2;
+lb=0.25*l;
+ub=0.75*l;
 plotstep=500;   %plot step for the p-cross section of H
+subH=H;
 for j=2:m
     xp=[xp mean(H(:,j-1))];
     sp=[sp std(H(:,j-1))];
     Hwp=H(:,j-1);
-    Hwp=Hwp(Hwp~=0);
-    Hwp=Hwp(Hwp~=l);
+    Hwp=Hwp(Hwp>=lb);
+    Hwp=Hwp(Hwp<=ub);
     xwp=[xwp mean(Hwp)];
     swp=[swp std(Hwp)];
     startpt=0;
     endpt=mx;
     for i=2:mm
         if startpt==0
-            if H(i-1,j-1)>0
-                startpt=Es(i-1);
+            if H(i-1,j-1)>lb
+                startpt=Es(i);
                 
             end
         end
         if endpt==mx
-            if H(i-1,j-1)==l
-                endpt=Es(i);
+            if H(i-1,j-1)>ub
+                endpt=Es(i-1);
                 
             end
+        end
+        %computes subH
+        if H(i-1,j-1)>lb && H(i-1,j-1)<ub
+            subH(i-1,j-1)=l/2;
+        elseif H(i-1,j-1)<=lb
+                subH(i-1,j-1)=lb;
+        elseif H(i-1,j-1)>=ub
+                subH(i-1,j-1)=ub;
         end
     end
     lowedge=[lowedge startpt];
@@ -138,18 +149,6 @@ figure(k+4)
 plot(p(2:end),xwp);
 figure(k+5)
 plot(p(2:end),swp);
-
-%computes subH
-subH=H;
-for i=2:mm
-    for j=2:m
-        for h=1:l
-            if H(i-1,j-1)>0 && H(i-1,j-1)<l
-                subH(i-1,j-1)=l/2;
-            end
-        end
-    end
-end
 
 %plot colormap based on subH
 figure(k+6)
