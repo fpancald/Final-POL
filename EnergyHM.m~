@@ -105,7 +105,7 @@ for j=2:m
             end
         end
         if endpt==mx
-            if H(i-1,j-1)>=ub
+            if H(i-1,j-1)==ub
                 endpt=Es(i-1);
                 
             end
