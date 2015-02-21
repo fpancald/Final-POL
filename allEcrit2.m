@@ -3,7 +3,7 @@
 %           c - consumption of single cell
 %           p - dissipation of single transport
 %outputs: E vector - all critical energies for connectivity matrix A sorted
-%in descending order
+%in descending order not unique
 %description: calculates all critical energies for the given network
 %iterating ecrit3 through all the nodes.
 
