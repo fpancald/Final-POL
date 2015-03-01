@@ -50,8 +50,8 @@ m=length(p);
 
 mx=log10(max(max((E(:,2:end))')));      %determine if visualize all the energies in E on y-axis (max-max) or troncate at the minimum one for the smallest non-zero p value
 %mx=log10(min(max((E(:,2:end))')));     % (min-max). We take the max only on non-zero p values (2:end)
-
-Es=0:mx/(10*(m-1)):mx;                  %the log10 energy axis grid is taken 10 times finer than the p grid (can be changed in the future)
+dE=mx/(10*(m-1));
+Es=0:dE:mx;                  %the log10 energy axis grid is taken 10 times finer than the p grid (can be changed in the future)
 LE=log10(E);
 mm=length(Es);
 H=zeros(mm-1,m-1);                      %H does not consider the very first log10 energy level (Es=0) and the very first p value (p=0)
@@ -83,7 +83,7 @@ sp=[];
 xwp=[];
 swp=[];
 entxwp=[];
-entswp=[];
+entstdwp=[];
 k=2;
 lb=0.0*l;
 ub=1.0*l;
@@ -99,6 +99,8 @@ for j=2:m
     swp=[swp std(Hwp)];
     startpt=0;
     endpt=mx;
+    starti=2;
+    endi=mm;
     for i=2:mm
         if startpt==0
             if H(i-1,j-1)>lb
@@ -127,7 +129,7 @@ for j=2:m
     end
     
     %mean and std in window as energy maximized with respect to mean energy
-    [exwp,estdwp]=energymeanstd(meanE,H(starti:endi,j),(endpt-startpt),Es(starti:endi));
+    [exwp,estdwp]=energymeanstd(meanE,H(starti-1:endi-1,j-1),dE,Es(starti-1:endi-1));
     entxwp=[entxwp exwp];
     entstdwp=[entstdwp estdwp];
     
@@ -172,5 +174,5 @@ colorbar
 figure(k+7)
 plot(p(2:end),entxwp);
 figure(k+8)
-plot(p(2:end),entswp);
+plot(p(2:end),entstdwp);
 end
