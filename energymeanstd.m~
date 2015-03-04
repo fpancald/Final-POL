@@ -1,0 +1,16 @@
+function [entmean,entstd]=energymeanstd(meanE,x,E)
+N=length
+entmean=0;
+entstd=0;
+l=length(x);
+lambda=1/meanE;
+for i=1:l
+    entmean=entmean+lambda*exp(-lambda*E(i))*x(i);
+end
+entmean=entmean;
+for i=1:l
+    entstd=entstd+lambda*exp(-lambda*E(i))*(x(i)-entmean)^2;
+end
+entstd=entstd;
+entstd=sqrt(entstd);
+end

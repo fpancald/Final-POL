@@ -33,7 +33,7 @@
 %                  hence we take the statistic only inside the
 %                  "evolvability window"
 
-function [xp,sp,xwp,swp,entxwp,entstdwp,lowedge,upedge,delta,LE,E,subH,H]=EnergyHM2(T,k,c,p,meanE)
+function [xp,sp,xwp,swp,entxwp,entstdwp,lowedge,upedge,delta,LE,E,subH,H]=EnergyHM2(T,k,c,p)
 warning('off','MATLAB:singularMatrix');         %turn off warnings for singular
 warning('off','MATLAB:nearlySingularMatrix');   %and nearly singular matrices happens when p close to 0 (is expected)
 
@@ -52,6 +52,7 @@ mx=log10(max(max((E(:,2:end))')));      %determine if visualize all the energies
 %mx=log10(min(max((E(:,2:end))')));     % (min-max). We take the max only on non-zero p values (2:end)
 dE=mx/(10*(m-1));
 Es=0:dE:mx;                  %the log10 energy axis grid is taken 10 times finer than the p grid (can be changed in the future)
+% Es=Es*n;
 LE=log10(E);
 mm=length(Es);
 H=zeros(mm-1,m-1);                      %H does not consider the very first log10 energy level (Es=0) and the very first p value (p=0)
@@ -129,7 +130,8 @@ for j=2:m
     end
     
     %mean and std in window as energy maximized with respect to mean energy
-    [exwp,estdwp]=energymeanstd(meanE,H(starti-1:endi-1,j-1),dE,Es(starti-1:endi-1));
+    nME=5;
+    [exwp,estdwp]=energymeanstd(10.^(mx/nME:mx/nME:mx),H(:,j-1),10.^(Es));
     entxwp=[entxwp exwp];
     entstdwp=[entstdwp estdwp];
     
@@ -166,13 +168,17 @@ plot(p(2:end),swp);
 
 %plot colormap based on subH
 figure(k+6)
-colormap('jet')
-imagesc(p(2:end),Es(2:end),subH)
-set(gca,'YDir','normal')
-colorbar
-
-figure(k+7)
-plot(p(2:end),entxwp);
-figure(k+8)
-plot(p(2:end),entstdwp);
+    colormap('jet')
+    imagesc(p(2:end),Es(2:end),subH)
+    set(gca,'YDir','normal')
+    colorbar
+k=k+7;
+for h=1:nME
+    figure(k)
+    plot(p(2:end),entxwp(h,:));
+    k=k+1;
+    figure(k)
+    plot(p(2:end),entstdwp(h,:));
+    k=k+1;
+end
 end
