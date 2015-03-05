@@ -61,7 +61,7 @@ H=zeros(mm-1,m-1);                      %H does not consider the very first log1
 for i=2:mm
     for j=2:m
         for h=1:l
-            if Es(i)>LE(h,j)
+            if Es(i)+log10(n)>LE(h,j)
                 H(i-1,j-1)=H(i-1,j-1)+1;
             end
         end
