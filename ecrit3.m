@@ -32,9 +32,9 @@ if all(E>0)==0
     C(E<=0)=0;
     v=[c;-p*A1'*B*C];
     E=M\v;
-    Ec=E(1);
+    %Ec=E(1);
 else
-    Ec=E(1);
+    %Ec=E(1);
 end
 if all(E>=c-1e-15)==0
     C(E<c)=0;

@@ -13,18 +13,18 @@ function [E]=allEcrit3(A,c,p)
 format long
 M=A;
 n=length(M);
-E=[];
+E=zeros(n-1,1);
 
 for j=1:n-1
-    F=[];
+    F=zeros(n-1,2);
     for i=2:n
     %     E=[E;[ecrit(M,i,c,p),i]];
     %    E=[E;[ecrit2(M,i,c,p),i]];
-        F=[F;[ecrit3(M,i,c,p),i]];
+        F(i-1,:)=[ecrit3(M,i,c,p),i];
     end
-    [G,I]=sort(F(:,1), 'descend');
+    [~,I]=sort(F(:,1), 'descend');
     F=F(I,:);
-    E=[E; F(j,1)];
+    E(j,1)=F(j,1);
     M(F(j,2),:)=zeros(1,n);
 end
 end
