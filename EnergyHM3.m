@@ -16,7 +16,7 @@
 %               in T and each column to a value of p)
 %           LE: is log10 version of E (needed for plotting purpose)
 %
-function [LE,E,H]=EnergyHM3(T,k,c,p)
+function [E]=EnergyHM3(T,k,c,p)
 warning('off','MATLAB:singularMatrix');         %turn off warnings for singular
 warning('off','MATLAB:nearlySingularMatrix');   %and nearly singular matrices happens when p close to 0 (is expected)
 
@@ -26,30 +26,12 @@ E=zeros(l,m);
 
 %compute the energy matrix E line by line through function EnergyMatrix
 for i=1:l
-    n=length(T{i});
+    %n=length(T{i});
     E(i,:)=EnergyMatrix(T{i},k,c,p);
 end
 
-mx=log10(max(max((E(:,2:end)),2)));      %determine if visualize all the energies in E on y-axis (max-max) or troncate at the minimum one for the smallest non-zero p value
-%mx=log10(min(max((E(:,2:end)),2)));     % (min-max). We take the max only on non-zero p values (2:end)
-dE=mx/(10*(m-1));
-Es=0:dE:mx;                  %the log10 energy axis grid is taken 10 times finer than the p grid (can be changed in the future)
-% Es=Es*n;
-% LE=log10(E)-log10(n)*ones(size(E));
-LE=log10(E);
-mm=length(Es);
-H=zeros(mm-1,m-1);                      %H does not consider the very first log10 energy level (Es=0) and the very first p value (p=0)
 
-%compute H value for each grid point
-for i=2:mm
-    for j=2:m
-        for h=1:l
-            if Es(i)>LE(h,j)
-                H(i-1,j-1)=H(i-1,j-1)+1;
-            end
-        end
-    end
-end
+
 
 warning('on','MATLAB:singularMatrix');          %turn on again warnings 
 warning('on','MATLAB:nearlySingularMatrix');

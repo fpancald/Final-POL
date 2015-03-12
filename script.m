@@ -1,5 +1,5 @@
-n1=10;
-n2=20;
+n1=7;
+n2=10;
 N=10;
 k=1;
 c=1;
@@ -8,8 +8,8 @@ T=randsettopsize(n1,N);
 %T=randsettopsizes(n1,n2,N);
 % Q{1}=T{8};
 tic
-[LE,E,H]=EnergyHM3(T,k,c,p);
-% [LE,E,H]=EnergyHM3(Q,k,c,p);
+[E]=EnergyHM3(T,k,c,p);
+% [E]=EnergyHM3(Q,k,c,p);
 toc
 tic
 reader;
