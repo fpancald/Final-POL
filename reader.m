@@ -20,11 +20,32 @@
 %compute other outputs and plot p-cross sections of H
 m=length(p);
 l=length(T);
-mx=max(max(LE(:,2:end)));      %determine if visualize all the energies in E on y-axis (max-max) or troncate at the minimum one for the smallest non-zero p value
+
+mx=log10(max(max(E(:,2:end))));      %determine if visualize all the energies in E on y-axis (max-max) or troncate at the minimum one for the smallest non-zero p value
+% mx=log10(min(max(E(:,2:end))));     % (min-max). We take the max only on non-zero p values (2:end)
+
 dE=mx/(10*(m-1));
 Es=0:dE:mx;                  %the log10 energy axis grid is taken 10 times finer than the p grid (can be changed in the future)
+% Es=Es*n;
 mm=length(Es);
+
+% LE=log10(E)-log10(n)*ones(size(E)); %gives energy per cell
+LE=log10(E);                           %gives energy independent of size
+
 nME=5;
+
+H=zeros(mm-1,m-1);                      %H does not consider the very first log10 energy level (Es=0) and the very first p value (p=0)
+
+%compute H value for each grid point
+for i=2:mm
+    for j=2:m
+        for h=1:l
+            if Es(i)>LE(h,j)
+                H(i-1,j-1)=H(i-1,j-1)+1;
+            end
+        end
+    end
+end
 
 delta=zeros(1,m-1);
 lowedge=zeros(1,m-1);
