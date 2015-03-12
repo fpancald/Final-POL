@@ -35,8 +35,8 @@ mx=log10(max(max((E(:,2:end)),2)));      %determine if visualize all the energie
 dE=mx/(10*(m-1));
 Es=0:dE:mx;                  %the log10 energy axis grid is taken 10 times finer than the p grid (can be changed in the future)
 % Es=Es*n;
-% LE=log10(E)-log10(n)*ones(size(E));
-LE=log10(E);
+% LE=log10(E)-log10(n)*ones(size(E)); %gives energy per cell
+LE=log10(E);                           %gives energy independent of size
 mm=length(Es);
 H=zeros(mm-1,m-1);                      %H does not consider the very first log10 energy level (Es=0) and the very first p value (p=0)
 

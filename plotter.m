@@ -47,3 +47,8 @@ for h=1:nME
     plot(p(2:end),entstdwp(h,:));
     K=K+1;
 end
+
+figure(K)
+plot(Es(2:end),xe);
+figure(K+1)
+plot(Es(2:end),se);
