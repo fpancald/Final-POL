@@ -13,6 +13,10 @@ for j=2:m
         plot(Es(2:end),H(:,j-1));
         title(num2str(p(j)));
         K=K+1;
+        figure(K)
+        plot(Es(2:end),NdE(:,j-1));
+        title(num2str(p(j)));
+        K=K+1;
     end
 end
    %plot remaining ouputs

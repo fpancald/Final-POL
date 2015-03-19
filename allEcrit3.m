@@ -20,7 +20,8 @@ for j=1:n-1
     for i=2:n
     %     E=[E;[ecrit(M,i,c,p),i]];
     %    E=[E;[ecrit2(M,i,c,p),i]];
-        F(i-1,:)=[ecrit3(M,i,c,p),i];
+%         F(i-1,:)=[ecrit3(M,i,c,p),i];
+        F(i-1,:)=[ecrit4(M,i,c,p),i];
     end
     [~,I]=sort(F(:,1), 'descend');
     F=F(I,:);

@@ -61,6 +61,8 @@ entstdwp=zeros(nME,m-1);
 xe=zeros(1,mm-1);
 se=zeros(1,mm-1);
 
+NdE=zeros(mm-1,m-1);
+
 lb=0.0*l;
 ub=1.0*l;
 
@@ -110,6 +112,11 @@ for j=2:m
     [exwp,estdwp]=energymeanstd(10.^(mx/nME:mx/nME:mx),H(:,j-1),10.^(Es));
     entxwp(:,j-1)=exwp;
     entstdwp(:,j-1)=estdwp;
+    
+    %energy derivative of N
+    
+    NdE(:,j-1)=energyder(H(:,j-1),dE);
+    entxwp(:,j-1)=exwp;
     
     lowedge(1,j-1)=startpt;
     upedge(1,j-1)=endpt;

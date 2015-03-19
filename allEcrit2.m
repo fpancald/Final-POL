@@ -14,7 +14,8 @@ E=zeros(n-1,1);
 for i=2:n
 %     E=[E;ecrit(A,i,c,p)];
 %    E=[E;ecrit2(A,i,c,p)];
-    E(i-1)=ecrit3(A,i,c,p);
+%     E(i-1)=ecrit3(A,i,c,p);
+    E(i-1)=ecrit4(A,i,c,p);
 end
 E=sort(E, 'descend');
 end
