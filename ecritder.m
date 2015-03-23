@@ -1,4 +1,4 @@
-%ecrit3
+%ecritder
 %inputs: A matrix - connectivity matrix
 %           k positive integer - node chosen as "barely alive" to calculate
 %           the critical energy
@@ -9,7 +9,7 @@
 %formulation given the connectivity matrix and the node to keep "barely
 %alive"
 
-function [Ec]=ecrit4(A,k,c,p)
+function [Ec,dEc]=ecritder(A,k,c,p)
 n=length(A);
 M=zeros(1,n);
 M(1,k)=1;
@@ -39,4 +39,8 @@ if all(E>=c-1e-15)==0
     E=M\v;
 end
 Ec=E(1)-A(:,1)'*B*(E-ones(n,1)*c)*p;
+dv=A'*B*(E-C);
+dM=(eye(n)-A'*B*p);
+dE=dM\dv;
+dEc=dE(k);
 end
