@@ -21,7 +21,7 @@ for j=1:n-1
     for i=2:n
         [tE,tdE]=ecritder(M,i,c,p);
         F(i-1,:)=[tE,i];
-        F(i-1,:)=[tdE,i];
+        dF(i-1,:)=[tdE,i];
     end
     [~,I]=sort(F(:,1), 'descend');
     F=F(I,:);

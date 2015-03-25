@@ -1,0 +1,7 @@
+dEp=zeros(l,m-2);
+for i=3:m
+    for j=1:l
+        dEp(j,i-2)=(E(j,i-2)-E(j,i-))/dE;
+    end
+end
+plot(dEp,p(2:end-1)+p(3:end));

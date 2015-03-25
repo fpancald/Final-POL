@@ -28,7 +28,7 @@ dE=zeros(l,m);
 %compute the der-energy matrix dE line by line through function EnergyMatrix
 for i=1:l
     %n=length(T{i});
-    [dE(i,:)]=derEnergyMatrix(T{i},k,c,p);
+    [E(i,:),dE(i,:)]=derEnergyMatrix(T{i},k,c,p);
 end
 
 

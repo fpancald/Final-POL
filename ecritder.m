@@ -39,8 +39,12 @@ if all(E>=c-1e-15)==0
     E=M\v;
 end
 Ec=E(1)-A(:,1)'*B*(E-ones(n,1)*c)*p;
-dv=A'*B*(E-C);
-dM=(eye(n)-A'*B*p);
+
+A2=A;
+A2(:,k)=zeros(n,1);
+dv=A2'*B*(E-ones(n,1)*c);
+dM=(eye(n)-A2'*B*p);
 dE=dM\dv;
-dEc=dE(k);
+dEc=dE(1)-A(:,1)'*B*(E-ones(n,1)*c+dE*p);
+
 end
