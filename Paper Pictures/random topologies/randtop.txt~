@@ -1,0 +1,29 @@
+colormaprandsize10N46.eps: 0<p<1 colormap Y-axis Environmental energy, X-axis p
+				46 topologies each of size 10 build with random generator.
+
+colormaprandsize10N46_1_2.eps: 1<p<2 colormap Y-axis Environmental energy, X-axis p
+				46 topologies each of size 10 build with random generator.
+
+evowindrandsize10N46.eps: 0<p<1 evolvability window Y-axis Environmental energy, X-axis p
+				46 topologies each of size 10 build with random generator.
+
+evowindrandsize10N46_1_2.eps: 1<p<2 evolvability window Y-axis Environmental energy, X-axis p
+				46 topologies each of size 10 build with random generator.
+
+sizeevowindrandsize10N46.eps: 0<p<1 size of evolvability window Y-axis difference in Environmental energy, X-axis p
+				46 topologies each of size 10 build with random generator.
+
+sizeevowindrandsize10N46_1_2.eps: 1<p<2 size of evolvability window Y-axis difference in Environmental energy, X-axis p
+				46 topologies each of size 10 build with random generator.
+
+meanrandsize10N46.eps: means resp. to variable p-crossection with Energy distributed according to entropy maximizing pdf and mean energy=Emax/5,Emax2/5,Emax3/5,Emax4/5,Emax (Emax highest energy in the colormap);
+Y-axis Number of surviving specis, X-axis factor p
+
+stdrandsize10N46.eps: standard deviations resp. to variable p-crossection with Energy distributed according to entropy maximizing pdf and mean energy=Emax/5,Emax2/5,Emax3/5,Emax4/5,Emax (Emax highest energy in the colormap);
+Y-axis Number of surviving specis, X-axis factor p
+
+meanrandsize10N46energy.eps: means resp. to variable E-crossection with p distributed uniformely;
+Y-axis Number of surviving specis, X-axis factor p
+
+stdrandsize10N46energy.eps: standard deviations resp. to variable E-crossection with p distributed uniformely;
+Y-axis Number of surviving specis, X-axis factor p

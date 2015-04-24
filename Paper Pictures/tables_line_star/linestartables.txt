@@ -1,0 +1,28 @@
+g1p0_5n20.jpg: group1(forks)  Y-axis critical energy, X-axis l=length of line (before fork), p=0.5, size N=20;
+
+g1p0_5.jpg: group1(forks) Y-axis critical energy, X-axis N number of nodes (N=2,..,20), p=0.5, s=#of path in the fork(different color is different s, from top to bottom decreasing s from 1 to 19);
+
+
+g1p0_9n20.jpg: group1(forks)  Y-axis critical energy, X-axis l=length of line (before fork), p=0.9, size N=20;
+
+g1p0_9.jpg: group1(forks) Y-axis critical energy, X-axis N number of nodes (N=2,..,20), p=0.9, s=#of path in the fork(different color is different s, from top to bottom decreasing s from 1 to 19);
+
+g1p1n20.jpg: group1(forks)  Y-axis critical energy, X-axis l=length of line (before fork), p=1, size N=20;
+
+g1p1.jpg: group1(forks) Y-axis critical energy, X-axis N number of nodes (N=2,..,20), p=1, s=#of path in the fork(different color is different s, from top to bottom decreasing s from 1 to 19);
+
+
+g2p0_4n20.jpg: group2(stellarflares)  Y-axis critical energy, X-axis l=length of line (before fork), p=0.4, size N=20;
+
+g2p0_5.jpg: group1(stellarflares) Y-axis critical energy, X-axis N number of nodes (N=2,..,20), p=0.5, s=#of path in the fork(different color is different s, from top to bottom decreasing s from 1 to 19);
+
+
+g2p0_9n20.jpg: group1(stellarflares)  Y-axis critical energy, X-axis l=length of line (before fork), p=0.9, size N=20;
+
+g2p0_9.jpg: group1(stellarflares) Y-axis critical energy, X-axis N number of nodes (N=2,..,20), p=0.9, s=#of path in the fork(different color is different s, from top to bottom decreasing s from 1 to 19);
+
+g2p1n20.jpg: group1(stellarflares)  Y-axis critical energy, X-axis l=length of line (before fork), p=1, size N=20;
+
+g2p1.jpg: group1(stellarflares) Y-axis critical energy, X-axis N number of nodes (N=2,..,20), p=1, s=#of path in the fork(different color is different s, from top to bottom decreasing s from 1 to 19);
+
+starline.jpg: critical energy (Y-axis) of star vs. line topology for N from 2 to 20 (X-axis)

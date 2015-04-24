@@ -1,0 +1,3 @@
+4topexample.eps: colormap of 4 topologies with 5 nodes each;
+			lower line is 2 topologies with same critical energy;
+			2 lines intersecting at p=1/3 indicates conditional dominance between the other 2 topologies.

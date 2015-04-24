@@ -1,0 +1,32 @@
+All the following pictures are for 46 topologies each of size 10 build with topelit generator (no loop no trapped-energy).
+
+
+colormaptopelitsize10N46.eps: 0<p<1 colormap Y-axis Environmental energy, X-axis p
+				
+
+colormaptopelitsize10N46_1_2.eps: 1<p<2 colormap Y-axis Environmental energy, X-axis p
+				
+
+evowindtopsize10N46.eps: 0<p<1 evolvability window Y-axis Environmental energy, X-axis p
+				
+
+evowindtopsize10N46_1_2.eps: 1<p<2 evolvability window Y-axis Environmental energy, X-axis p
+				
+
+sizeevowindtopsize10N46.eps: 0<p<1 size of evolvability window Y-axis difference in Environmental energy, X-axis p
+				
+
+sizeevowindtopsize10N46_1_2.eps: 1<p<2 size of evolvability window Y-axis difference in Environmental energy, X-axis p
+				
+
+meantopelitsize10N46.eps: means resp. to variable p-crossection with Energy distributed according to entropy maximizing pdf and mean energy=Emax/5,Emax2/5,Emax3/5,Emax4/5,Emax (Emax highest energy in the colormap);
+Y-axis Number of surviving specis, X-axis factor p
+
+stdtopelitsize10N46.eps: standard deviations resp. to variable p-crossection with Energy distributed according to entropy maximizing pdf and mean energy=Emax/5,Emax2/5,Emax3/5,Emax4/5,Emax (Emax highest energy in the colormap);
+Y-axis Number of surviving specis, X-axis factor p
+
+meantopelitsize10N46energy.eps: means resp. to variable E-crossection with p distributed uniformely;
+Y-axis Number of surviving specis, X-axis factor p
+
+stdtopelitize10N46energy.eps: standard deviations resp. to variable E-crossection with p distributed uniformely;
+Y-axis Number of surviving specis, X-axis factor p
