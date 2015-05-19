@@ -1,0 +1,1 @@
+meanslope=entxwp(1:nME,2:end)-entxwp(1:nME,2:end)/

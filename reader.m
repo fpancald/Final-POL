@@ -29,7 +29,7 @@ Es=0:dE:mx;                  %the log10 energy axis grid is taken 10 times finer
 % Es=Es*n;
 mm=length(Es);
 
-% LE=log10(E)-log10(n)*ones(size(E)); %gives energy per cell
+% LE=log10(E)-log10(n)*ones(size(E)); %gives energy per cell (one size) 
 LE=log10(E);                           %gives energy independent of size
 
 nME=5;
@@ -40,7 +40,8 @@ H=zeros(mm-1,m-1);                      %H does not consider the very first log1
 for i=2:mm
     for j=2:m
         for h=1:l
-            if Es(i)>LE(h,j)
+%             if Es(i)>LE(h,j)
+            if Es(i)>LE(h,j)-log10(length(T{h}))%gives energy per cell
                 H(i-1,j-1)=H(i-1,j-1)+1;
             end
         end

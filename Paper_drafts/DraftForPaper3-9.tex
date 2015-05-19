@@ -1,0 +1,157 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{amsart}
+%
+%----------------------------------------------------------
+% This is a sample document for the AMS LaTeX Article Class
+% Class options
+%        -- Point size:  8pt, 9pt, 10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper(default), a4paper
+%        -- Orientation: portrait(default), landscape
+%        -- Print size:  oneside, twoside(default)
+%        -- Quality:     final(default), draft
+%        -- Title page:  notitlepage, titlepage(default)
+%        -- Start chapter on left:
+%                        openright(default), openany
+%        -- Columns:     onecolumn(default), twocolumn
+%        -- Omit extra math features:
+%                        nomath
+%        -- AMSfonts:    noamsfonts
+%        -- PSAMSFonts  (fewer AMSfonts sizes):
+%                        psamsfonts
+%        -- Equation numbering:
+%                        leqno(default), reqno (equation numbers are on the right side)
+%        -- Equation centering:
+%                        centertags(default), tbtags
+%        -- Displayed equations (centered is the default):
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Electronic journal:
+%                        e-only
+%------------------------------------------------------------
+% For instance the command
+%          \documentclass[a4paper,12pt,reqno]{amsart}
+% ensures that the paper size is a4, fonts are typeset at the size 12p
+% and the equation numbers are on the right side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%------------------------------------------------------------
+% Theorem like environments
+%
+\newtheorem{theorem}{Theorem}
+\theoremstyle{plain}
+\newtheorem{acknowledgement}{Acknowledgement}
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}{Case}
+\newtheorem{claim}{Claim}
+\newtheorem{conclusion}{Conclusion}
+\newtheorem{condition}{Condition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{criterion}{Criterion}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{lemma}{Lemma}
+\newtheorem{notation}{Notation}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{solution}{Solution}
+\newtheorem{summary}{Summary}
+\numberwithin{equation}{section}
+%--------------------------------------------------------
+\begin{document}
+Introduction: Biology and transport problems\\
+\\
+\\
+1. Ecological networks\\
+	- Describe from previous work (suggestions for papers?)\\
+	- food web (Is a food web optimal?)(Sun -> Grass -> Herbivore -> Carnivore -> Bacteria(?) )\\
+		-Interested in statistical properties\\
+		-Decide how the 'p' level is done----keep constant\\
+		-Need to add more nodes (possibly adjust p,c) in this food web case to handle the complexity of interactions between different types of individuals\\
+		-Concern/Difficulty: Connecting to empirical data\\
+		-Check for connection weights\\
+2. Network Optimization\\
+	-Empirical study of networks\\
+		-information transport (c >0 (?)) (see email from 12/21)\\
+		-Relation to evolution\\
+3. Transport problems\\
+\\
+\\
+\\
+Description of the model\\
+\\
+1. Discrete network model\\
+ a. Pump\\
+ b. Other nodes\\
+ c. Connectivity rules\\
+ d. Consumption of energy\\
+ e. Cost of transport proportional to amount of transport\\
+2. Determining energy at each node\\
+ a. Given an energy that the pump receives, we can know the energy received by all other cells.\\
+ b.Simple examples (figure 1)\\
+ c. Critical energy - Knowing a point when a certain number of cells die, find the energy at the pump \\
+3. Special Networks\\
+ a. Line\\
+ b. Star\\
+ c. Importance of these motifs\\
+ d. Simple generalizations\\
+  i. Fork\\
+	ii. Stellar flare (re-name)\\
+ e. Provide explicit formula of first critical energy\\
+ f. Node to die is independent of c and p\\
+  i. only one path back to the pump\\
+\\
+Recursive Formula \\
+\\
+0. Motivation\\
+ a. Where to start?\\
+ b. Which node dies first? second, etc.\\
+ c. More paths back to the pump as the network grows\\
+ d. How do we handle loops (i.e. when there is no explicit formula)?\\
+1. The formula itself\\
+ a. The special topologies don't span the space of allowable topologies\\
+  i. Topologies may depend on c and p (figure)\\
+	ii. What happens when a node dies in general?\\
+	iii. How many nodes die at a given event?\\
+	iv. The formula\\
+	v. Example of a simple topology with non-trivial death events (figure)\\
+	vi. Example of dependence on p even within a single topology\\
+ b. Calculate critical energy for everyone, the maximum is the 1st critical energy (2nd largest $->$2nd critical energy, 3rd, etc.)\\
+2. (Aside/Example: Finding the stoichiometric coefficient of a chemical reaction)\\
+3. Anything else goes into Supplementary Material\\
+\\
+Example of competing topologies\\
+\\
+0. Find best $E_k$. \\
+ a. How to minimize a specific $E_k$ that we are more interested in\\
+ b. Which of the possible topologies is the best for a given beta (environmental energy distribution)?\\
+1. Analytically find when p values cross\\
+2. Not reasonable to do this for large numbers of topologies\\
+3. \\
+\\
+Colormap and Data Analysis (random and builder)\\
+\\
+1. Cross-section\\
+ a. p\\
+ b. E\\
+2. Mean and Standard Deviation\\
+3. Low/Upper edge\\
+4. Derivatives\\
+5. Compare random and builder (Description of each in supplementary material)\\
+\\
+Conclusions and Future Work\\
+\\
+0. Connections to biological evolution\\
+1. Analysis of E1, E2, and E3 in real vs. optimal networks\\
+2. Comparing result with Diffusion (flux?)\\
+\\
+\end{document}

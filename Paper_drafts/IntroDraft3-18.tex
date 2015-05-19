@@ -1,0 +1,185 @@
+%% Based on a TeXnicCenter-Template by Gyorgy SZEIDL.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%------------------------------------------------------------
+%
+\documentclass{amsart}
+%
+%----------------------------------------------------------
+% This is a sample document for the AMS LaTeX Article Class
+% Class options
+%        -- Point size:  8pt, 9pt, 10pt (default), 11pt, 12pt
+%        -- Paper size:  letterpaper(default), a4paper
+%        -- Orientation: portrait(default), landscape
+%        -- Print size:  oneside, twoside(default)
+%        -- Quality:     final(default), draft
+%        -- Title page:  notitlepage, titlepage(default)
+%        -- Start chapter on left:
+%                        openright(default), openany
+%        -- Columns:     onecolumn(default), twocolumn
+%        -- Omit extra math features:
+%                        nomath
+%        -- AMSfonts:    noamsfonts
+%        -- PSAMSFonts  (fewer AMSfonts sizes):
+%                        psamsfonts
+%        -- Equation numbering:
+%                        leqno(default), reqno (equation numbers are on the right side)
+%        -- Equation centering:
+%                        centertags(default), tbtags
+%        -- Displayed equations (centered is the default):
+%                        fleqn (equations start at the same distance from the right side)
+%        -- Electronic journal:
+%                        e-only
+%------------------------------------------------------------
+% For instance the command
+%          \documentclass[a4paper,12pt,reqno]{amsart}
+% ensures that the paper size is a4, fonts are typeset at the size 12p
+% and the equation numbers are on the right side
+%
+\usepackage{amsmath}%
+\usepackage{amsfonts}%
+\usepackage{amssymb}%
+\usepackage{graphicx}
+%------------------------------------------------------------
+% Theorem like environments
+%
+\newtheorem{theorem}{Theorem}
+\theoremstyle{plain}
+\newtheorem{acknowledgement}{Acknowledgement}
+\newtheorem{algorithm}{Algorithm}
+\newtheorem{axiom}{Axiom}
+\newtheorem{case}{Case}
+\newtheorem{claim}{Claim}
+\newtheorem{conclusion}{Conclusion}
+\newtheorem{condition}{Condition}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{criterion}{Criterion}
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{exercise}{Exercise}
+\newtheorem{lemma}{Lemma}
+\newtheorem{notation}{Notation}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{solution}{Solution}
+\newtheorem{summary}{Summary}
+\numberwithin{equation}{section}
+%--------------------------------------------------------
+\begin{document}
+Description of the model\\
+\\
+1. Discrete network model\\
+\\
+\\
+We formulate our model as a directed graph consisting of $N$ nodes. We represent our network as an $N \text{ x } N$ connectivity matrix, $A$ where \begin{displaymath}
+   a_{ij}= \left\{
+     \begin{array}{lr}
+       1 : \text{if }i \text{ connects to } j &\\
+       0 : \text{otherwise}&
+     \end{array}
+   \right.
+\end{displaymath}
+\\
+\\
+ a. Pump\\
+\\
+There is one node in the network that receives a signal (energy) from the environment, we call this node the pump. From the pump, the signal (energy) is transmitted along edges to all other nodes in the network. Heretofore, the pump will be labeled as node 1 in the connectivity matrix, and in diagrams as $P$.
+\\
+\\
+ b. Other nodes, d. Consumption of energy\\
+\\
+\\
+All nodes can receive a signal (i.e. information, energy) along incoming edges and transmit the signal (energy) along outgoing edges. Each node has a constant signal difference, $c$, that is the difference between the incoming and outgoing signal: $c=E_{in}-E_{out}$ [NOTE: non-constant $c$ is possible in extensions]. 
+\\
+\\
+ c. Connectivity rules\\
+\\
+\\
+We choose to use a directed graph because there is a net flow of (signal) energy from the pump to successive nodes. Our model requires that our graph contains a directed path from the pump to any other node in the network [NOTE: Could refer to this condition as pump connected]. [NOTE: Should have no loop going back to the pump?]
+\\
+ e. Cost of transport proportional to amount of transport\\
+\\
+\\
+After a node modulates the signal, node $i$ is dividing its remaining signal ($E_{out,i}$)(energy) into equal parts based on the number of outward connections, $b_i$. The amount received by each of the $b_i$ successors is equal to a proportionality factor, $p$, of the outgoing energy: 
+\begin{equation}
+E_{in,j}=\frac{E_{out,i}\cdot p}{b_i}
+\end{equation} There are three cases to consider, $0<p<1: $ dissipative transport, $p > 1: $ amplified transport, and $p=1: $ neutral transport.\\
+\\
+\\
+2. Determining signal (energy) at each node\\
+\\
+\\
+The signal (energy) at each node is given by the sum of the signal (energy) received from inward connections. The signal (energy) transmitted from node $i$ to node $j$ is denoted $E_{ij}$. Given an initial environmental energy, $E$, we can calculate the energy at each successive node $i$ using the formula: 
+\begin{equation}\label{eq:rec1}
+E_i=\sum_{j=1}^N E_{ji}=\sum_{j=1}^N a_{ji}\frac{(E_j-c)p}{b_j}, \text{ For } i=2,\cdots, N 
+\end{equation}
+\begin{equation}\label{eq:rec2}
+E_1=E_0+\sum_{j=1}^N E_{j1}=\sum_{j=1}^N a_{j1}\frac{(E_j-c)p}{b_j}
+\end{equation}
+where $E_i$ is the incoming signal to node $i$ (Note: $E_i=E_{in, i}$ for node $i$) for $i=1,2,...,N$ and $E_0$ is the environmental (initial) energy given to the system from an outside source [NOTE: May want to change notation to be more graph theoretical (i.e. $j\in V(G)$)]. An example of the use of \ref{eq:rec1} and \ref{eq:rec2} for a simple system is shown in figure 1[create reference]. 
+\\
+\\
+ a. Given an energy that the pump receives, we can know the energy received by all other cells.\\
+\\
+ b.Simple examples (figure 1)\\
+\\
+ c. Critical energy - Knowing a point when a certain number of cells die, find the energy at the pump \\
+\\
+	i. Definition of critical energy for a specific node and its meaning\\
+	\\
+	The critical energy of the $k^{th}$ node $E^*_k$ is the lowest environmental energy at which the node can survive (i.e. $E_k \geq c$)\\
+	\\
+	ii. How to compute\\
+	\\
+	We are taking the system of $N$ equations and adding the condition $E_k=c$ so that we have $N+1$ equations in $N+1$ unknowns. Generally this system has a unique solution since the equations are linearly independent. So we solve for the $E_i$ with $i=0,1,...,N$ and we have $E^*_k=E_0$.\\
+	\\
+	iii. Definition of ordinal critical energies and their meaning\\
+	\\
+	Once we have a list of critical energies for all nodes, the first node to die will be the one with the largest critical energy. Forming a list of critical energies in descending order, will correspond to a death event when the energy falls below an entry. The $r^{th}$ entry in this list will be called the $r^{th}$ critical energy and denoted $E^{*,r}$.\\
+	\\
+	\\
+	\\
+	\\
+3. Special Networks\\
+\\
+We can group topologies into ones for which we can explicitly write the formula for critical energy. A sufficient condition to write the critical energies is for the topology to be acyclic. Some examples of such topologies are seen in figure 2 [reference figure. To include: Description of special topologies in caption, Topologies themselves, connectivity matrix, critical energies] 
+[Followed by plots: .....]
+\\
+ a. Line\\
+\\
+\\
+ b. Star\\
+\\
+\\
+ c. Importance of these motifs\\
+\\
+\\
+\\
+\\
+
+ d. Simple generalizations\\
+\\
+\\
+\\
+  i. Fork\\
+	\\
+	\\
+	\\
+	ii. Stellar flare (re-name)\\
+	\\
+	\\
+	\\
+	\\
+ e. Provide explicit formula of first critical energy\\
+\\
+\\
+\\
+ f. Node to die is independent of c and p\\
+\\
+\\
+  i. only one path back to the pump\\
+	\\
+\\
+\end{document}
