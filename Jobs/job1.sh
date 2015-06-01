@@ -2,7 +2,7 @@
 #$ -M fpancald@nd.edu
 #$ -m ae
 #$ -r y
-#$ -q short
+#$ -q long
 #$ -N job1
 
 
