@@ -1,8 +1,8 @@
 for ns=2:n2
     HH{ns}=zeros(mm-1,m-1); 
 end
-for i=2:100:mm
-    for j=2:100:m
+for i=2:mm
+    for j=2:m
         for h=1:l
             s=length(T{h});
 %             if Es(i)>LE(h,j)
