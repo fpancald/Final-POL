@@ -1,0 +1,37 @@
+clear all
+n=50;
+c=1;
+
+p=1;
+psum=0;
+for l=1:n-1
+    psum=psum+p^(l-1);
+    s=n-l;
+    E(l)=c*(s*psum+p^l)/p^l;
+end
+figure(1)
+plot(1:n-1,E);
+xlabel('Number of nodes N')
+ylabel('Critical energy E*')
+title('Critical energy for the star(red) and the line(blue)')
+hold on
+
+p=0.98;
+psum=0;
+for l=1:n-1
+    psum=psum+p^(l-1);
+    s=n-l;
+    E(l)=c*(s*psum+p^l)/p^l;
+end
+
+plot(1:n-1,E);
+
+p=0.92;
+psum=0;
+for l=1:n-1
+    psum=psum+p^(l-1);
+    s=n-l;
+    E(l)=c*(s*psum+p^l)/p^l;
+end
+
+plot(1:n-1,E);
