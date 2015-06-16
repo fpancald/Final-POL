@@ -1,0 +1,21 @@
+ModuleCmd_Load.c(208):ERROR:105: Unable to locate a modulefile for 'mpich2/1.4.1-intel'
+/afs/crc.nd.edu/user/f/fpancald: Permission denied.
+
+                            < M A T L A B (R) >
+                  Copyright 1984-2014 The MathWorks, Inc.
+                    R2014a (8.3.0.532) 64-bit (glnxa64)
+                             February 11, 2014
+
+ 
+To get started, type one of these: helpwin, helpdesk, or demo.
+For product information, visit www.mathworks.com.
+ 
+>> >> >> >> >> >> >> {Undefined function or variable 'n4'.
+
+Error in scriptbysize2 (line 1)
+for ns=2:n4
+} 
+>> >> {Error using save
+Variable 'HH' not found.
+} 
+>> 
