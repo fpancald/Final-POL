@@ -3,6 +3,7 @@
 #$ -m ae
 #$ -r y
 #$ -q long
+#$ -pe smp 12
 #$ -N job17
 
 
