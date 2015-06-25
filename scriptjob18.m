@@ -10,6 +10,6 @@ for cnt=n
     T=[T starmut(cnt,N,Kmut)];
 end
 
-% [E]=EnergyHM3(T,k,c,p);
-% 
-% reader;
+[E]=EnergyHM3(T,k,c,p);
+
+reader;
